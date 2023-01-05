@@ -6,4 +6,4 @@ dict_variable = {
 print(dict_variable)
 
 for key in dict_variable:
-    print(key, dict_variable[key])
+    print(key,':', dict_variable[key])
