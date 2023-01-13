@@ -12,10 +12,23 @@ def recommendation(title):
         'language': 'ko-KR',
         'query' : title
     }
-    response = requests.get(BASE_URL+path, params=params).json()
-    
-    
-
+    params1 = {
+        'api_key': '1a135b877970744bf1fc70c0b71ef5c6',
+        'language': 'ko-KR'
+    }
+    try:
+        response = requests.get(BASE_URL+path, params=params).json()
+        movie_id = response.get('results')[0].get('id') 
+        # 무비아이디는 입력한 값으로 검색한 영화 정보들 중 첫 번째 영화의 아이디.
+        path1 = '/movie/'+str(movie_id)+'/recommendations'
+        response1 = requests.get(BASE_URL+path1, params=params1).json()
+        # response1는 무비아이디로 검색한 추천 영화들의 리스트.
+        list = []
+        for i in range(len(response1.get('results'))): # 제목들만 나오게
+            list.append(response1.get('results')[i].get('title'))
+        return list
+    except:
+        return None
 
 # 아래의 코드는 수정하지 않습니다.
 if __name__ == '__main__':
@@ -31,3 +44,4 @@ if __name__ == '__main__':
     # []
     pprint(recommendation('검색할 수 없는 영화'))
     # None
+    
