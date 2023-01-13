@@ -5,7 +5,37 @@ from pprint import pprint
 def credits(title):
     pass
     # 여기에 코드를 작성합니다.
-
+    BASE_URL = 'https://api.themoviedb.org/3'
+    path = '/search/movie'
+    params = {
+        'api_key': '1a135b877970744bf1fc70c0b71ef5c6',
+        'language': 'ko-KR',
+        'query' : title
+    }
+    params1 = {
+        'api_key': '1a135b877970744bf1fc70c0b71ef5c6',
+        'language': 'ko-KR'
+    }
+    try:
+        response = requests.get(BASE_URL+path, params=params).json()
+        movie_id = response.get('results')[0].get('id') 
+        path1 = '/movie/'+str(movie_id)+'/credits'
+        response1 = requests.get(BASE_URL+path1, params=params1).json()
+        cast1 = response1.get('cast')
+        crew1 = response1.get('crew')
+        cast = []
+        crew = []
+        ac = {'cast': cast, 'crew': crew}
+        for i in cast1:
+            if i.get('cast_id') < 10:
+                cast.append(i.get('name'))
+        for i in crew1:
+            if i.get('department') == 'Directing':
+                crew.append(i.get('name'))
+        return ac
+    except:
+        return None
+        
 
 # 아래의 코드는 수정하지 않습니다.
 if __name__ == '__main__':
