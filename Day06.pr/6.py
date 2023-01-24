@@ -1,6 +1,10 @@
-a = list(map(int,input('양의 정수를 입력하세요')))
-sum = 0
+a = int(input('정수를 입력하세요'))
+n = 0
 
-for i in a:
-    sum += i
-print(sum)
+if n < 0:
+    print(-1)
+else:
+    while a > 0:
+        n += a % 10
+        a = a//10
+    print(n)
