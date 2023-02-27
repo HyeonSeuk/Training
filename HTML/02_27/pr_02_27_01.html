@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:800" rel="stylesheet">
+  <title>이미지 위 이미지</title>
+  <style>
+    * {
+      font-family: 'Nanum Gothic', sans-serif;
+      box-sizing: border-box;
+  }
+    .box {
+      width: 800px;
+      border: 3px solid black;
+      position: relative;  
+    }
+    .make-blue {
+      color: blue;
+    }
+    .a {
+      position: absolute;
+      right: 0px;
+    }
+    .p {
+      padding-left: 50px;
+    }
+  </style>
+</head>
+<body class="box">
+  <div class="a"><img src="./2.png" alt="영국" width="150" height="70"></div>
+  <img src="./1.jpg" alt="팀 버너스리" width="795" height="500">
+  <h1 class="p">팀 버너스리</h1>
+  <h3 class="p">프로그래머</h3>
+  <h3 class="p">1989년 월드 와이드 웹의 하이퍼텍스트 시스템을 고안하여 개발. 웹의 아버지</h3>
+  <p class="p">국적 : 영국</p>
+  <p class="p">생년월일 : 1955년 6월 8일</p>
+  <p class="p">추가정보 : <a class="make-blue" href="https://ko.wikipedia.org/wiki/팀_버너스리">https://ko.wikipedia.org/wiki/팀_버너스리</a></p>
+  </ul>
+</body>
+</html>
